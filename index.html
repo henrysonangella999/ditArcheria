@@ -1,26 +1,18 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Archeria 101</title>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Archeria</title>
-    <!-- Google Fonts Link -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>| Archeria | Making Remote Work Better</title>
+
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: "Montserrat", sans-serif;
-            font-optical-sizing: auto;
-            font-weight: 300;
-            font-style: normal;
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
     <style>
         /* Basic Reset */
         * {
@@ -31,204 +23,379 @@
 
         body {
             font-family: "Montserrat", sans-serif;
-            font-optical-sizing: auto;
-            font-weight: 600;
-            font-style: normal;
-            background-color: white;
+            background-color: #ffffff;
+            color: #111111;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
         }
 
-        /* Navbar Styling */
+        /* Navigation Bar */
         .navbar {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 40px;
-            margin-left: 20px;
-            margin-right: 20px;
+            gap: 25px;
+            padding: 25px 5%;
             background-color: #f8f9fa;
         }
 
-            .navbar .logo img {
-                width: 300px;
-                height: 63.15px;
+        .logo img {
+            display: block;
+            width: 180px;
+            max-width: 100%;
+            height: auto;
+        }
+
+        .navbar ul {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+
+            .navbar ul li {
+                position: relative;
             }
 
-            .navbar ul {
-                list-style: none;
-                display: flex;
-                gap: 20px;
-            }
-
-                .navbar ul li {
-                    position: relative;
+                .navbar ul li a {
+                    display: block;
+                    text-decoration: none;
+                    color: #222222;
+                    font-size: 14px;
+                    font-weight: 500;
+                    padding: 10px 0;
+                    transition: color 0.3s;
                 }
 
-                    .navbar ul li:hover ul {
-                        display: block;
+                    .navbar ul li a:hover {
+                        color: #777777;
                     }
 
-                    .navbar ul li ul {
-                        display: none;
-                        position: absolute;
-                        top: 100%;
-                        left: 0;
-                        background-color: white;
-                        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-                        padding: 10px 0;
+                /* Dropdown Menus */
+                .navbar ul li ul {
+                    display: none;
+                    position: absolute;
+                    top: 100%;
+                    left: -15px;
+                    min-width: 160px;
+                    background-color: #ffffff;
+                    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.12);
+                    border-radius: 6px;
+                    padding: 8px 0;
+                    z-index: 100;
+                }
+
+                .navbar ul li:hover > ul,
+                .navbar ul li:focus-within > ul {
+                    display: block;
+                }
+
+                .navbar ul li ul li a {
+                    padding: 10px 15px;
+                    white-space: nowrap;
+                }
+
+                    .navbar ul li ul li a:hover {
+                        background-color: #f1f1f1;
                     }
 
-                        .navbar ul li ul li {
-                            padding: 10px 20px;
-                            white-space: nowrap;
-                        }
+        /* Login and Register Buttons */
+        .buttons {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
 
-                            .navbar ul li ul li:hover {
-                                background-color: #f1f1f1;
-                            }
-
-            .navbar .buttons {
-                display: flex;
-                gap: 10px;
-            }
-
-            .navbar button {
-                padding: 10px 20px;
-                border-radius: 20px;
-                border: none;
+            .buttons button {
+                padding: 11px 22px;
+                border-radius: 25px;
+                font-family: inherit;
+                font-size: 14px;
+                font-weight: 600;
                 cursor: pointer;
-                font-size: 16px;
+                transition: 0.3s;
             }
 
-                .navbar button.login {
-                    background-color: white;
-                    border: 1px solid #000;
-                    color: #000;
-                }
+        .login {
+            background-color: #ffffff;
+            color: #111111;
+            border: 1px solid #111111;
+        }
 
-                .navbar button.register {
-                    background-color: #000;
-                    color: white;
-                }
+            .login:hover {
+                background-color: #eeeeee;
+            }
 
-        /* Main Content Styling */
+        .register {
+            background-color: #111111;
+            color: #ffffff;
+            border: 1px solid #111111;
+        }
+
+            .register:hover {
+                background-color: #444444;
+            }
+
+        /* Main Content */
         .main-content {
             display: flex;
             align-items: center;
-            justify-content: space-around;
-            padding: 20px;
+            justify-content: space-between;
+            gap: 50px;
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 60px 5%;
+            flex: 1;
         }
 
-            .main-content .text-content {
-                max-width: 50%;
-            }
+        .text-content {
+            flex: 1;
+            min-width: 0;
+        }
 
-            .main-content h1 {
-                font-family: "Montserrat", sans-serif;
-                font-optical-sizing: auto;
+            .text-content h1 {
+                font-size: clamp(42px, 6vw, 82px);
+                line-height: 1.12;
                 font-weight: 700;
-                font-style: normal;
-                font-size: 140px;
-                margin-bottom: 20px;
+                letter-spacing: -3px;
+                margin-bottom: 25px;
             }
 
-            .main-content p {
-                font-size: 18px;
-                margin-bottom: 30px;
-            }
-
-            .main-content .cta-button {
-                background-color: #000;
-                color: white;
-                padding: 15px 30px;
-                text-decoration: none;
-                border-radius: 5px;
+            .text-content p {
+                max-width: 520px;
                 font-size: 16px;
+                font-weight: 400;
+                line-height: 1.9;
+                color: #666666;
+                margin-bottom: 35px;
             }
 
-            .main-content .image-content {
-                max-width: 50%;
-                align-items: flex-end;
+        .cta-button {
+            display: inline-block;
+            padding: 15px 30px;
+            background-color: #111111;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+
+            .cta-button:hover {
+                background-color: #444444;
             }
 
-                .main-content .image-content img {
-                    width: 960px;
-                    height: 1280px;
+        /* Main Image */
+        .image-content {
+            flex: 1;
+            min-width: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+            .image-content img {
+                display: block;
+                width: 100%;
+                max-width: 550px;
+                max-height: 650px;
+                object-fit: contain;
+                border-radius: 10px;
+            }
+
+        /* Footer */
+        footer {
+            background-color: #333333;
+            color: #ffffff;
+            text-align: center;
+            padding: 22px 15px;
+            margin-top: auto;
+        }
+
+            footer p {
+                font-size: 13px;
+                font-weight: 400;
+            }
+
+        /* Tablet Screens */
+        @media (max-width: 1000px) {
+            .navbar {
+                flex-wrap: wrap;
+                padding: 20px 4%;
+            }
+
+                .navbar ul {
+                    gap: 16px;
                 }
 
-        /* Footer Styling */
-        footer {
-            background-color: #333;
-            color: white;
-            text-align: center;
-            padding: 20px;
-            /* position: absolute; */
-            width: 100%;
-            bottom: 0;
+            .main-content {
+                gap: 30px;
+                padding: 45px 4%;
+            }
+
+            .text-content h1 {
+                letter-spacing: -2px;
+            }
+        }
+
+        /* Mobile Screens */
+        @media (max-width: 700px) {
+            .navbar {
+                justify-content: center;
+                gap: 15px;
+            }
+
+            .logo {
+                width: 100%;
+                display: flex;
+                justify-content: center;
+            }
+
+                .logo img {
+                    width: 150px;
+                }
+
+            .navbar ul {
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 12px 20px;
+            }
+
+                .navbar ul li a {
+                    font-size: 13px;
+                }
+
+            .buttons {
+                justify-content: center;
+                width: 100%;
+            }
+
+            .main-content {
+                flex-direction: column;
+                text-align: center;
+                padding: 40px 6%;
+                gap: 35px;
+            }
+
+            .text-content,
+            .image-content {
+                width: 100%;
+            }
+
+                .text-content h1 {
+                    font-size: clamp(38px, 9vw, 58px);
+                    letter-spacing: -1.5px;
+                }
+
+                .text-content p {
+                    font-size: 14px;
+                    margin-left: auto;
+                    margin-right: auto;
+                }
+
+                .image-content img {
+                    max-width: 100%;
+                    max-height: 450px;
+                }
+        }
+
+        /* Small Mobile Screens */
+        @media (max-width: 400px) {
+            .navbar ul {
+                gap: 8px 14px;
+            }
+
+            .buttons button {
+                padding: 10px 18px;
+            }
+
+            .text-content h1 {
+                font-size: 36px;
+            }
         }
     </style>
-
 </head>
+
 <body>
-    <!--Navbar-->
-    <nav class="navbar" />
-    <div class="logo">
-        <!--<div class="logo">Logo</div>-->
-        <img src="./logo.jpeg" alt="Company logo" />
-    </div>
-    <ul>
-        <li>
-            Features
-    </ul>
-    <li> Feature 1</li>
-    <li> Feature 2</li>
-    </ul>
-    </li>
-    <li>
-        Company
-        <ul>
-            <li>About Us</li>
-            <li>Our Team</li>
-            </ul>
-        </li>
-    <li>
-        Careers
-        <ul>
-            <li>Job Openings</li>
-            <li>Internships</li>
-            </ul>
-        </li>
-<li>
-    About
-    <ul>
-        <li>Our Story</li>
-        <li>Contact Us</li>
-        </ul>
-    </li>
-    </ul>
-    <div class="buttons">
-        <button class=" Login">Login</button>
-        <button class="Register">Register</button>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+
+        <div class="logo">
+            <a href="#" aria-label="Archeria Home">
+                <img src="logo.jpeg" alt="Archeria Company Logo">
+            </a>
         </div>
+
+        <ul>
+            <li>
+                <a href="#">Features ▾</a>
+                <ul>
+                    <li><a href="#">Feature 1</a></li>
+                    <li><a href="#">Feature 2</a></li>
+                </ul>
+            </li>
+
+            <li>
+                <a href="#">Company ▾</a>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Our Team</a></li>
+                </ul>
+            </li>
+
+            <li>
+                <a href="#">Careers ▾</a>
+                <ul>
+                    <li><a href="#">Job Openings</a></li>
+                    <li><a href="#">Internships</a></li>
+                </ul>
+            </li>
+
+            <li>
+                <a href="#">About ▾</a>
+                <ul>
+                    <li><a href="#">Our Story</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+            </li>
+        </ul>
+
+        <div class="buttons">
+            <button type="button" class="login">Login</button>
+            <button type="button" class="register">Register</button>
+        </div>
+
     </nav>
 
-    <!--Main content-->
-    <div class="Main-content">
-        <div class="Text-content">
-            <h1>Making <br> Remote Work Better</h1>
-            <p>Get your team in sync, no matter your location. Streamline Processes, create team rituals, <br> and watch productivity soar</p>
+    <!-- Main Content -->
+    <main class="main-content">
+
+        <div class="text-content">
+            <h1>Making<br>Remote Work<br>Better</h1>
+
+            <p>
+                Get your team in sync, no matter your location.
+                Streamline processes, create team rituals, and
+                watch productivity soar.
+            </p>
+
             <a href="#" class="cta-button">Learn More</a>
         </div>
-        <div class="Image-content">
-            <!--Replace 'image.jpeg'with the actual image file path-->
+
+        <div class="image-content">
             <img src="image.jpeg" alt="Remote Work Experience">
-            </div>
         </div>
 
-    <!--footer-->
-    <footer>
-        <p>All Rights Reserved. &copy;archeria 2024</p>
-    </footer>
+    </main>
 
+    <!-- Footer -->
+    <footer>
+        <p>All Rights Reserved. &copy; Archeria 2024</p>
+    </footer>
 
 </body>
 </html>
